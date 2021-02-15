@@ -1,6 +1,6 @@
-# restful-api-node-express-crud
+# RESTful API with ExpressJs
 
-provivi simple project
+Provivi demo project
 
 # How to start Project
 
@@ -14,7 +14,11 @@ http://localhost:5000/
 
 # Backend using ExpressJs
 
-Server.js: This file that it's use it to handle all routes
+Server.js: This file that it's used to handle all routes
+
+I implemented swagger to document the API
+
+http://localhost:5000/v1/api-docs
 
 # Database
 
@@ -22,4 +26,13 @@ A variable is used for now as dummy database
 
 # Frontend using ReactJs
 
-I created a production files inside /build
+I created production files inside /build
+
+# Heroku
+
+I deployed this demo on Heroku
+
+https://api-provivi.herokuapp.com/
+
+API Documentation
+https://api-provivi.herokuapp.com/v1/api-docs/
