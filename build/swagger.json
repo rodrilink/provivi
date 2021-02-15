@@ -1,0 +1,154 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Provivi API",
+    "description": "Provivi API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:5000",
+  "basePath": "/v1",
+  "tags": [
+    {
+      "name": "Provivi",
+      "description": "API for operations"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/dashboard": {
+      "get": {
+        "tags": ["Provivi"],
+        "description": "Results",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Result",
+            "schema": {
+              "$ref": "#/definitions/FullResult"
+            }
+          }
+        }
+      }
+    },
+    "/getASum": {
+      "post": {
+        "tags": ["Provivi"],
+        "description": "Values we want to add",
+        "parameters": [
+          {
+            "name": "Add",
+            "in": "body",
+            "description": "Add two values",
+            "schema": {
+              "$ref": "#/definitions/Add"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Result",
+            "schema": {
+              "$ref": "#/definitions/Result"
+            }
+          }
+        }
+      }
+    },
+    "/getAProduct/{a}": {
+      "parameters": [
+        {
+          "name": "a",
+          "in": "path",
+          "required": true,
+          "description": "Value we want to multiply by 2",
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "tags": ["Provivi"],
+        "description": "Multiply the entered value by 2",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Result",
+            "schema": {
+              "$ref": "#/definitions/Result"
+            }
+          }
+        }
+      }
+    },
+    "/getAPower/{s}": {
+      "parameters": [
+        {
+          "name": "s",
+          "in": "path",
+          "required": true,
+          "description": "Value we want to take to the 2nd power",
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "tags": ["Provivi"],
+        "description": "2nd power to the entered value",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Result",
+            "schema": {
+              "$ref": "#/definitions/Result"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Results": {
+      "type": "array",
+      "$ref": "#/definitions/FullResult"
+    },
+    "Add": {
+      "required": ["x", "y"],
+      "properties": {
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        }
+      }
+    },
+    "Result": {
+      "type": "number"
+    },
+    "FullResult": {
+      "required": ["result", "name", "operation", "result"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "date": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "string"
+        },
+        "result": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
