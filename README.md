@@ -12,6 +12,8 @@ open browser and run below url
 
 http://localhost:5000/
 
+Use the left menu to navigate in the options and back to the dashboard to see the history
+
 # Backend using ExpressJs
 
 Server.js: This file that it's used to handle all routes
